@@ -1,0 +1,1087 @@
+{
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Glog.AI",
+          "organization": "Glog.AI",
+          "fullName": "Glog, Making software more secure",
+          "version": "1.0.0",
+          "semanticVersion": "1.0.0",
+          "informationUri": "https://www.glog.ai",
+          "rules": [
+            {
+              "id": "glog-9922d662-28e7-4205-b339-96baf8294b3e",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS140021"
+                ]
+              }
+            },
+            {
+              "id": "glog-9c5e74e5-5124-4bf3-8784-b5e568e6736f",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS140021"
+                ]
+              }
+            },
+            {
+              "id": "glog-cbabd261-08a0-4797-a00d-fb85dcae1a2d",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS161085"
+                ]
+              }
+            },
+            {
+              "id": "glog-904bd887-462c-45a1-a4f3-a8e1937cb8b9",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS161085"
+                ]
+              }
+            },
+            {
+              "id": "glog-636f2d49-594d-4486-a458-7f8adae7f78d",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS140021"
+                ]
+              }
+            },
+            {
+              "id": "glog-8024e721-d993-4175-bb76-208ec807437d",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS140021"
+                ]
+              }
+            },
+            {
+              "id": "glog-79fdd380-20fc-4db7-91ab-85634e895789",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS140021"
+                ]
+              }
+            },
+            {
+              "id": "glog-1a2535a3-8147-4087-9a05-e7b6ef61c5ef",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS140021"
+                ]
+              }
+            },
+            {
+              "id": "glog-6ae3c973-65ac-424f-9e24-125ed07f0a17",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS140021"
+                ]
+              }
+            },
+            {
+              "id": "glog-b4009071-17db-4214-b423-7dbb56b6bdab",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS140021"
+                ]
+              }
+            },
+            {
+              "id": "glog-34c27355-92f4-4b63-9fb3-5b80c4da1efb",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS140021"
+                ]
+              }
+            },
+            {
+              "id": "glog-a5f5bcb3-c852-4922-be57-18c40f4787b2",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS140021"
+                ]
+              }
+            }
+          ],
+          "language": "en-US",
+          "contents": [
+            "localizedData",
+            "nonLocalizedData"
+          ],
+          "isComprehensive": false
+        }
+      },
+      "language": "en-US",
+      "results": [
+        {
+          "ruleId": "glog-9c5e74e5-5124-4bf3-8784-b5e568e6736f",
+          "kind": "fail",
+          "level": "note",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/HPL_pdinfo.cpp"
+                },
+                "region": {
+                  "startLine": 887,
+                  "startColumn": 19,
+                  "endLine": 887,
+                  "endColumn": 30,
+                  "charOffset": 29467,
+                  "charLength": 11,
+                  "snippet": {
+                    "text": "strlen(num)",
+                    "rendered": {
+                      "text": "strlen(num)",
+                      "markdown": "`strlen(num)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 29467,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strlen_s(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 29467,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strnlen(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-9922d662-28e7-4205-b339-96baf8294b3e",
+          "kind": "fail",
+          "level": "note",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/HPL_pdinfo.cpp"
+                },
+                "region": {
+                  "startLine": 923,
+                  "startColumn": 19,
+                  "endLine": 923,
+                  "endColumn": 30,
+                  "charOffset": 30531,
+                  "charLength": 11,
+                  "snippet": {
+                    "text": "strlen(num)",
+                    "rendered": {
+                      "text": "strlen(num)",
+                      "markdown": "`strlen(num)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 30531,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strlen_s(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 30531,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strnlen(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-904bd887-462c-45a1-a4f3-a8e1937cb8b9",
+          "kind": "fail",
+          "level": "note",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/HPL_pdinfo.cpp"
+                },
+                "region": {
+                  "startLine": 1089,
+                  "startColumn": 18,
+                  "endLine": 1089,
+                  "endColumn": 33,
+                  "charOffset": 35354,
+                  "charLength": 15,
+                  "snippet": {
+                    "text": "malloc((size_t)",
+                    "rendered": {
+                      "text": "malloc((size_t)",
+                      "markdown": "`malloc((size_t)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If the value provided to malloc is the result of unsafe integer math, it can result in an exploitable condition. "
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 35354,
+                        "charLength": 15
+                      },
+                      "insertedContent": {
+                        "text": "calloc(<number of elements>, <size of each element>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-636f2d49-594d-4486-a458-7f8adae7f78d",
+          "kind": "fail",
+          "level": "note",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/HPL_pdinfo.cpp"
+                },
+                "region": {
+                  "startLine": 855,
+                  "startColumn": 19,
+                  "endLine": 855,
+                  "endColumn": 30,
+                  "charOffset": 28476,
+                  "charLength": 11,
+                  "snippet": {
+                    "text": "strlen(num)",
+                    "rendered": {
+                      "text": "strlen(num)",
+                      "markdown": "`strlen(num)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 28476,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strlen_s(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 28476,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strnlen(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-8024e721-d993-4175-bb76-208ec807437d",
+          "kind": "fail",
+          "level": "note",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/HPL_pdinfo.cpp"
+                },
+                "region": {
+                  "startLine": 826,
+                  "startColumn": 19,
+                  "endLine": 826,
+                  "endColumn": 30,
+                  "charOffset": 27555,
+                  "charLength": 11,
+                  "snippet": {
+                    "text": "strlen(num)",
+                    "rendered": {
+                      "text": "strlen(num)",
+                      "markdown": "`strlen(num)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 27555,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strlen_s(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 27555,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strnlen(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-79fdd380-20fc-4db7-91ab-85634e895789",
+          "kind": "fail",
+          "level": "note",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/HPL_pdinfo.cpp"
+                },
+                "region": {
+                  "startLine": 797,
+                  "startColumn": 19,
+                  "endLine": 797,
+                  "endColumn": 30,
+                  "charOffset": 26627,
+                  "charLength": 11,
+                  "snippet": {
+                    "text": "strlen(num)",
+                    "rendered": {
+                      "text": "strlen(num)",
+                      "markdown": "`strlen(num)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 26627,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strlen_s(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 26627,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strnlen(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-1a2535a3-8147-4087-9a05-e7b6ef61c5ef",
+          "kind": "fail",
+          "level": "note",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/HPL_pdinfo.cpp"
+                },
+                "region": {
+                  "startLine": 765,
+                  "startColumn": 19,
+                  "endLine": 765,
+                  "endColumn": 30,
+                  "charOffset": 25653,
+                  "charLength": 11,
+                  "snippet": {
+                    "text": "strlen(num)",
+                    "rendered": {
+                      "text": "strlen(num)",
+                      "markdown": "`strlen(num)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 25653,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strlen_s(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 25653,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strnlen(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-6ae3c973-65ac-424f-9e24-125ed07f0a17",
+          "kind": "fail",
+          "level": "note",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/HPL_pdinfo.cpp"
+                },
+                "region": {
+                  "startLine": 714,
+                  "startColumn": 19,
+                  "endLine": 714,
+                  "endColumn": 30,
+                  "charOffset": 24107,
+                  "charLength": 11,
+                  "snippet": {
+                    "text": "strlen(num)",
+                    "rendered": {
+                      "text": "strlen(num)",
+                      "markdown": "`strlen(num)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 24107,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strlen_s(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 24107,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strnlen(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-b4009071-17db-4214-b423-7dbb56b6bdab",
+          "kind": "fail",
+          "level": "note",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/HPL_pdinfo.cpp"
+                },
+                "region": {
+                  "startLine": 703,
+                  "startColumn": 19,
+                  "endLine": 703,
+                  "endColumn": 30,
+                  "charOffset": 23736,
+                  "charLength": 11,
+                  "snippet": {
+                    "text": "strlen(num)",
+                    "rendered": {
+                      "text": "strlen(num)",
+                      "markdown": "`strlen(num)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 23736,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strlen_s(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 23736,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strnlen(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-34c27355-92f4-4b63-9fb3-5b80c4da1efb",
+          "kind": "fail",
+          "level": "note",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/HPL_pdinfo.cpp"
+                },
+                "region": {
+                  "startLine": 670,
+                  "startColumn": 19,
+                  "endLine": 670,
+                  "endColumn": 30,
+                  "charOffset": 22670,
+                  "charLength": 11,
+                  "snippet": {
+                    "text": "strlen(num)",
+                    "rendered": {
+                      "text": "strlen(num)",
+                      "markdown": "`strlen(num)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 22670,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strlen_s(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 22670,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strnlen(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-a5f5bcb3-c852-4922-be57-18c40f4787b2",
+          "kind": "fail",
+          "level": "note",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/HPL_pdinfo.cpp"
+                },
+                "region": {
+                  "startLine": 641,
+                  "startColumn": 19,
+                  "endLine": 641,
+                  "endColumn": 30,
+                  "charOffset": 21788,
+                  "charLength": 11,
+                  "snippet": {
+                    "text": "strlen(num)",
+                    "rendered": {
+                      "text": "strlen(num)",
+                      "markdown": "`strlen(num)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 21788,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strlen_s(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 21788,
+                        "charLength": 11
+                      },
+                      "insertedContent": {
+                        "text": "strnlen(num, <size of num>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        }
+      ],
+      "newlineSequences": [
+        "\r\n",
+        "\n"
+      ]
+    }
+  ]
+}

@@ -12,29 +12,7 @@
           "informationUri": "https://www.glog.ai",
           "rules": [
             {
-              "id": "glog-9922d662-28e7-4205-b339-96baf8294b3e",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS140021"
-                ]
-              }
-            },
-            {
-              "id": "glog-9c5e74e5-5124-4bf3-8784-b5e568e6736f",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS140021"
-                ]
-              }
-            },
-            {
-              "id": "glog-cbabd261-08a0-4797-a00d-fb85dcae1a2d",
+              "id": "glog-fb8e38ae-6e9d-4937-8825-b971daa4e1f3",
               "help": {
                 "text": ""
               },
@@ -45,7 +23,18 @@
               }
             },
             {
-              "id": "glog-904bd887-462c-45a1-a4f3-a8e1937cb8b9",
+              "id": "glog-c4d9304c-ddc2-48d8-9382-a04dea1195ad",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS140021"
+                ]
+              }
+            },
+            {
+              "id": "glog-c9f5f10e-a835-4c01-8a47-0240d080db18",
               "help": {
                 "text": ""
               },
@@ -56,7 +45,7 @@
               }
             },
             {
-              "id": "glog-636f2d49-594d-4486-a458-7f8adae7f78d",
+              "id": "glog-19ef06df-f750-4075-8a5b-bcd2bbcb56f0",
               "help": {
                 "text": ""
               },
@@ -67,7 +56,7 @@
               }
             },
             {
-              "id": "glog-8024e721-d993-4175-bb76-208ec807437d",
+              "id": "glog-83776138-a190-48c0-90b1-ee4e56b95476",
               "help": {
                 "text": ""
               },
@@ -78,7 +67,7 @@
               }
             },
             {
-              "id": "glog-79fdd380-20fc-4db7-91ab-85634e895789",
+              "id": "glog-40844f32-3f4e-4a74-ba72-e3dd5f901560",
               "help": {
                 "text": ""
               },
@@ -89,7 +78,7 @@
               }
             },
             {
-              "id": "glog-1a2535a3-8147-4087-9a05-e7b6ef61c5ef",
+              "id": "glog-a6f79016-b43d-4615-a9d7-2313226c16d3",
               "help": {
                 "text": ""
               },
@@ -100,7 +89,7 @@
               }
             },
             {
-              "id": "glog-6ae3c973-65ac-424f-9e24-125ed07f0a17",
+              "id": "glog-4d39ca66-dbc8-4839-89db-77e6b3b009cc",
               "help": {
                 "text": ""
               },
@@ -111,7 +100,7 @@
               }
             },
             {
-              "id": "glog-b4009071-17db-4214-b423-7dbb56b6bdab",
+              "id": "glog-40b31f9b-fb21-4a96-b6e5-ee771f5a34ce",
               "help": {
                 "text": ""
               },
@@ -122,7 +111,7 @@
               }
             },
             {
-              "id": "glog-34c27355-92f4-4b63-9fb3-5b80c4da1efb",
+              "id": "glog-7171e23e-69bc-4882-b820-8886eb3595b2",
               "help": {
                 "text": ""
               },
@@ -133,7 +122,18 @@
               }
             },
             {
-              "id": "glog-a5f5bcb3-c852-4922-be57-18c40f4787b2",
+              "id": "glog-bd37301b-8fce-4c3f-b30c-610c17d8a049",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS140021"
+                ]
+              }
+            },
+            {
+              "id": "glog-918e67df-fd13-4b74-9c91-166696a8383f",
               "help": {
                 "text": ""
               },
@@ -155,7 +155,70 @@
       "language": "en-US",
       "results": [
         {
-          "ruleId": "glog-9c5e74e5-5124-4bf3-8784-b5e568e6736f",
+          "ruleId": "glog-fb8e38ae-6e9d-4937-8825-b971daa4e1f3",
+          "kind": "fail",
+          "level": "note",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/HPL_pdinfo.cpp"
+                },
+                "region": {
+                  "startLine": 1047,
+                  "startColumn": 18,
+                  "endLine": 1047,
+                  "endColumn": 33,
+                  "charOffset": 34093,
+                  "charLength": 15,
+                  "snippet": {
+                    "text": "malloc((size_t)",
+                    "rendered": {
+                      "text": "malloc((size_t)",
+                      "markdown": "`malloc((size_t)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If the value provided to malloc is the result of unsafe integer math, it can result in an exploitable condition. "
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 34093,
+                        "charLength": 15
+                      },
+                      "insertedContent": {
+                        "text": "calloc(<number of elements>, <size of each element>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-c4d9304c-ddc2-48d8-9382-a04dea1195ad",
           "kind": "fail",
           "level": "note",
           "message": {},
@@ -241,7 +304,70 @@
           }
         },
         {
-          "ruleId": "glog-9922d662-28e7-4205-b339-96baf8294b3e",
+          "ruleId": "glog-c9f5f10e-a835-4c01-8a47-0240d080db18",
+          "kind": "fail",
+          "level": "note",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/HPL_pdinfo.cpp"
+                },
+                "region": {
+                  "startLine": 1089,
+                  "startColumn": 18,
+                  "endLine": 1089,
+                  "endColumn": 33,
+                  "charOffset": 35354,
+                  "charLength": 15,
+                  "snippet": {
+                    "text": "malloc((size_t)",
+                    "rendered": {
+                      "text": "malloc((size_t)",
+                      "markdown": "`malloc((size_t)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If the value provided to malloc is the result of unsafe integer math, it can result in an exploitable condition. "
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/HPL_pdinfo.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 35354,
+                        "charLength": 15
+                      },
+                      "insertedContent": {
+                        "text": "calloc(<number of elements>, <size of each element>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-19ef06df-f750-4075-8a5b-bcd2bbcb56f0",
           "kind": "fail",
           "level": "note",
           "message": {},
@@ -327,70 +453,7 @@
           }
         },
         {
-          "ruleId": "glog-904bd887-462c-45a1-a4f3-a8e1937cb8b9",
-          "kind": "fail",
-          "level": "note",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "src/HPL_pdinfo.cpp"
-                },
-                "region": {
-                  "startLine": 1089,
-                  "startColumn": 18,
-                  "endLine": 1089,
-                  "endColumn": 33,
-                  "charOffset": 35354,
-                  "charLength": 15,
-                  "snippet": {
-                    "text": "malloc((size_t)",
-                    "rendered": {
-                      "text": "malloc((size_t)",
-                      "markdown": "`malloc((size_t)`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "If the value provided to malloc is the result of unsafe integer math, it can result in an exploitable condition. "
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "src/HPL_pdinfo.cpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 35354,
-                        "charLength": 15
-                      },
-                      "insertedContent": {
-                        "text": "calloc(<number of elements>, <size of each element>)"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "BestPractice",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "API.DangerousAPI.ProblematicFunction"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-636f2d49-594d-4486-a458-7f8adae7f78d",
+          "ruleId": "glog-83776138-a190-48c0-90b1-ee4e56b95476",
           "kind": "fail",
           "level": "note",
           "message": {},
@@ -476,7 +539,7 @@
           }
         },
         {
-          "ruleId": "glog-8024e721-d993-4175-bb76-208ec807437d",
+          "ruleId": "glog-40844f32-3f4e-4a74-ba72-e3dd5f901560",
           "kind": "fail",
           "level": "note",
           "message": {},
@@ -562,7 +625,7 @@
           }
         },
         {
-          "ruleId": "glog-79fdd380-20fc-4db7-91ab-85634e895789",
+          "ruleId": "glog-a6f79016-b43d-4615-a9d7-2313226c16d3",
           "kind": "fail",
           "level": "note",
           "message": {},
@@ -648,7 +711,7 @@
           }
         },
         {
-          "ruleId": "glog-1a2535a3-8147-4087-9a05-e7b6ef61c5ef",
+          "ruleId": "glog-4d39ca66-dbc8-4839-89db-77e6b3b009cc",
           "kind": "fail",
           "level": "note",
           "message": {},
@@ -734,7 +797,7 @@
           }
         },
         {
-          "ruleId": "glog-6ae3c973-65ac-424f-9e24-125ed07f0a17",
+          "ruleId": "glog-40b31f9b-fb21-4a96-b6e5-ee771f5a34ce",
           "kind": "fail",
           "level": "note",
           "message": {},
@@ -820,7 +883,7 @@
           }
         },
         {
-          "ruleId": "glog-b4009071-17db-4214-b423-7dbb56b6bdab",
+          "ruleId": "glog-7171e23e-69bc-4882-b820-8886eb3595b2",
           "kind": "fail",
           "level": "note",
           "message": {},
@@ -906,7 +969,7 @@
           }
         },
         {
-          "ruleId": "glog-34c27355-92f4-4b63-9fb3-5b80c4da1efb",
+          "ruleId": "glog-bd37301b-8fce-4c3f-b30c-610c17d8a049",
           "kind": "fail",
           "level": "note",
           "message": {},
@@ -992,7 +1055,7 @@
           }
         },
         {
-          "ruleId": "glog-a5f5bcb3-c852-4922-be57-18c40f4787b2",
+          "ruleId": "glog-918e67df-fd13-4b74-9c91-166696a8383f",
           "kind": "fail",
           "level": "note",
           "message": {},
